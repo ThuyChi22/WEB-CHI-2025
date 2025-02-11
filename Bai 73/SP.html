@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset=" 'utf-8">
+    <title>Tiêu đề trang</title>
+    <script type="text/javascript">
+            dataset= {"Sanphams":[
+                    {
+                    ma: "sp1",
+                    ten: "Cocacola",
+                    gia: 15000
+                    },
+                    {
+                    ma: "sp2",
+                    ten: "Pepsi",
+                    gia: 25000
+                    },
+                    {
+                    ma: "sp3",
+                    ten: "Sting",
+                    gia: 17000
+                    },
+                    ] 
+                }
+    </script>
+</head>
+<body>
+    <table border="1">
+        <caption>List Product</caption>
+        <thead>
+            <tr>
+                <th>Mã SP</th>
+                <th>Tên SP</th>
+                <th>Đơn Giá</th>
+            </tr>
+        </thead>
+        <tbody id="productbody"></tbody>
+    </table>
+
+    <script type="text/javascript">
+        var productbody = document.getElementById("productbody");
+        for (var i = 0; i < dataset.Sanphams.length; i++) {
+            var product = dataset.Sanphams[i];
+            var tr = document.createElement("tr");
+            productbody.appendChild(tr);
+
+            var td = document.createElement("td");
+            td.innerText = product.ma;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.innerText = product.ten;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.innerText = product.gia;
+            tr.appendChild(td);
+        }
+    </script>
+    </table>
+
+</body>
+</html>

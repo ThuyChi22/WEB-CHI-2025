@@ -1,0 +1,146 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Student list</title>
+    <script>
+        var dataset = "<sinhviens>";
+            dataset += "<sinhvien>";
+            dataset += "<mssv>K123456789</mssv>";
+            dataset += "<hoTen>Quách Thị Bán Bún Bò</hoTen>";
+            dataset += "<ngaySinh>7/7/1997</ngaySinh>";
+            dataset += "<gioiTinh>Nữ</gioiTinh>";
+            dataset += "</sinhvien>";
+            dataset += "<sinhvien>";
+            dataset += "<mssv>K12345000</mssv>";
+            dataset += "<hoTen>Hồng Lâu Mộng</hoTen>";
+            dataset += "<ngaySinh>2/2/1992</ngaySinh>";
+            dataset += "<gioiTinh>Nam</gioiTinh>";
+            dataset += "</sinhvien>";
+            dataset += "<sinhvien>";
+            dataset += "<mssv>K1674000</mssv>";
+            dataset += "<hoTen>Hồ Văn Đồ</hoTen>";
+            dataset += "<ngaySinh>2/7/1997</ngaySinh>";
+            dataset += "<gioiTinh>Nam</gioiTinh>";
+            dataset += "</sinhvien>";
+            dataset += "</sinhviens>";
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var headers = document.querySelectorAll("th");
+            headers.forEach(function(header, index) {
+                if (index < 4) { // chỉ xét các cột có thể sắp xếp
+                    header.addEventListener("click", function() {
+                        sortTableByColumn(index);
+                    });
+                }
+            });
+    
+            var rows = document.querySelectorAll("tbody tr");
+            rows.forEach(function(row) {
+                row.addEventListener("click", function() {
+                    var studentId = this.cells[0].textContent; // Giả sử cột đầu tiên chứa mã sinh viên
+                    window.location.href = `details.html?studentId=${studentId}`; // Đổi đường dẫn phù hợp với yêu cầu của bạn
+                });
+            });
+        });
+    
+        function sortTableByColumn(columnIndex) {
+            var table = document.querySelector("table");
+            var tbody = table.tBodies[0];
+            var rows = Array.from(tbody.rows);
+            var isAscending = tbody.classList.contains(`sorted-asc-${columnIndex}`);
+            rows.sort(function(rowA, rowB) {
+                var textA = rowA.cells[columnIndex].textContent.trim();
+                var textB = rowB.cells[columnIndex].textContent.trim();
+                return textA.localeCompare(textB, undefined, {numeric: true, sensitivity: 'base'}) * (isAscending ? -1 : 1);
+            });
+            rows.forEach(function(row) {
+                tbody.appendChild(row);
+            });
+            tbody.classList.toggle(`sorted-asc-${columnIndex}`, !isAscending);
+        }
+    </script>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        tbody tr:hover{
+            background-color: yellow;
+            text-align: center;
+        }
+        /* lia chuột vô là màu vàng */
+        .highlight { 
+        background-color: yellow;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr style="background-color: yellow;"> <!-- Màu nền vàng cho tiêu đề chính -->
+                <th colspan="4">Danh sách sinh viên</th> <!-- Cho thẻ này chiếm 4 cột -->
+            </tr>
+            <tr style="background-color: green; color: white;">
+                <th>Mã Sinh Viên</th>
+                <th>Họ tên</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+            </tr>
+        </thead>
+        <tbody id="tbodysinhvien">
+        </tbody>
+    </table>
+    <script>
+        function taidanhsachsinhvien()
+        {
+            // buoc 1: nạp mô hình XML DOM 
+            var parser = new DOMParser(); 
+            var xmlDoc = parser.parseFromString(dataset, "text/xml"); 
+            // buoc 2: lay toan bo thẻ sinh viên
+            var students = xmlDoc.getElementsByTagName("sinhvien");
+            for (var i = 0; i < students.length; i++)
+            {
+                // lấy thẻ sinh viên thứ i 
+                var sti = students[i];
+                var mssv = sti.getElementsByTagName("mssv")[0].childNodes[0].nodeValue;
+                var hoTen = sti.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue;
+                var ngaySinh = sti.getElementsByTagName("ngaySinh")[0].childNodes[0].nodeValue;
+                var gioiTinh = sti.getElementsByTagName("gioiTinh")[0].childNodes[0].nodeValue;
+
+                // buoc 2: xu ly html dom để hiển thị dữ liệu từ xml lên giao diện: 
+                var tbodysinhvien = document.getElementById("tbodysinhvien");
+
+                var tr = document.createElement("tr");
+                tbodysinhvien.appendChild(tr);
+
+                var tdmssv = document.createElement("td");
+                tdmssv.innerText = mssv;
+                tr.appendChild(tdmssv);
+
+                var tdhoten = document.createElement("td");
+                tdhoten.innerText = hoTen;
+                tr.appendChild(tdhoten);
+
+                var tdngaysinh = document.createElement("td");
+                tdngaysinh.innerText = ngaySinh;
+                tr.appendChild(tdngaysinh);
+
+                var tdgioitinh = document.createElement("td");
+                tdgioitinh.innerText = gioiTinh;
+                tr.appendChild(tdgioitinh);
+            }
+        }
+        taidanhsachsinhvien();
+    </script>
+</body>
+</html>
