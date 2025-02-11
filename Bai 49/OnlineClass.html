@@ -1,0 +1,107 @@
+<html>
+<head>
+    <meta charset=" 'utf-8">
+    <title>Online Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7feaff;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 5px;
+        }
+        input[type="text"], input[type="number"], select, textarea {
+            width: 300px;
+            padding: 5px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: red; text-align: left;">Online Classified Search Form</h1>
+    <hr>
+    <h2 style="text-align: left;">1. Search for a classified in the following section</h2>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="section" id="employment" value="Employment">
+                    <label for="section">Employment</label>
+                    <input type="radio" name="section" id="personal" value="Personal">
+                    <label for="section">Personal</label>
+                    <br>
+                    <input type="radio" name="section" id="forsale" value="forsale">
+                    <label for="section">For Sale</label>
+                    <input type="radio" name="section" id="miscellaneus" value="Miscellaneus">
+                    <label for="section">Miscellaneus</label>
+                    <br>
+                    <input type="radio" name="section" id="housing" value="Housing">
+                    <label for="section">Housing</label>
+                    <input type="radio" name="section" id="all" value="All">
+                    <label for="section">All of the above</label>
+            </tr>
+        </table>
+    <h2 style="text-align: left;">2. Search the following publication</h2>
+        <table>
+            <tr>
+                <td>
+                    <input type="checkbox" name="public" id="midwest" value="Midwest times">
+                    <label for="public">Midwest times</label>
+                    <input type="checkbox" name="public" id="modern" value="Modern News">
+                    <label for="public">Modern News</label>
+                    <input type="checkbox" name="public" id="employment" value="Employment Today">
+                    <label for="public">Employment Today</label>
+                    <br>
+                    <input type="checkbox" name="public" id="greate" value="Greate Lakes Classifields">
+                    <label for="public">Greate Lakes Classifields</label>
+                    <input type="checkbox" name="public" id="middleton" value="Middleton Daily">
+                    <label for="public">Middleton Daily</label>
+                    <input type="checkbox" name="public" id="cashtown" value="Cashtown Daily News">
+                    <label for="public">Cashtown Daily News</label>
+        </table>
+        <table>
+            <tr>
+                <label for="from"><b>3.From to</b></label><input id="from" type="text" name="datefrom" 
+                placeholder="mm/dd/yy" value=""/>
+                <label for="to">To</label><input id="to" type="text" name="dateto"
+                placeholder="mm/dd/yy" value=""/>
+            </tr>
+            <h2 style="text-align: left";><label for="keyword">4)Enter a few keywords to describe the classified</label></h2>
+        <input type="text" name="keyword" id="keyword" style="width: 470px;">
+        <h2>5)Click one of the options below</h2>
+        
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" style="background-color:aqua; border:0;">
+                            <img src="images/Search.gif" alt="Search" onclick="javascript:alert('search simulation')">
+
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" style="background-color:aqua; border:0;">
+                            <img src="images/Help.gif" alt="Search" onclick="javascript:href('helppage.html')">
+
+                        </button>
+                    </td>
+                    <td>
+                        <button type="reset" style="background-color:aqua; border:0;">
+                            <img src="images/Cancel.gif" alt="Search" >
+
+                        </button>
+                    </td>
+                </tr>
+            </table>
+    
+    </form>
+        </table>
+        
+    

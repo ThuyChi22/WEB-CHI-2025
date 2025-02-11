@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Bốn mùa</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Khoảng cách giữa các khối */
+            justify-content: flex-start; /* Căn các khối về bên trái */
+        }
+
+        .season {
+            width: 45%; /* Mỗi khối chiếm 45% chiều rộng */
+            background-color: lightgray;
+            padding: 15px;
+            box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng kích thước */
+            color: grey;
+            line-height: 1.6;
+        }
+
+        .h {
+            font-size: x-large;
+            font-weight: bold;
+            color: blue;
+        }
+
+        #spring {
+            background-color: pink;
+        }
+
+        #summer {
+            background-color: orange;
+        }
+
+        #autumn {
+            background-color: yellow;
+        }
+
+        #winter {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="season" id="spring">
+            <span class="h">Mùa Xuân</span><br/>
+            Những ngày tháng chạp, khi đất trời rộn ràng trong tình khúc giao mùa, ta vẫn thường cùng nhau dạo qua những con phố ngày giáp Tết đông đúc người qua lại. Phố những ngày này chẳng xác xơ như khi mùa đông mới ghé, phố cũng tươi tắn, xúng xính trong những sắc màu tươi rói để chờ đón xuân sang.
+        </div>
+        <div class="season" id="summer">
+            <span class="h">Mùa Hạ</span><br/>
+            Mưa mùa hạ đến rồi đi bất chợt mang theo không khí mát dịu, trong trẻo xóa tan nắng hè đổ lửa. Kỷ niệm ùa về. Cơn mưa đầu mùa mang đến mùa màng bội thu, nhưng có lúc lại lấy đi đồng lúa đang thì của người nông dân khắc khổ.
+        </div>
+        <div class="season" id="autumn">
+            <span class="h">Mùa Thu</span><br/>
+            Mùa thu tới, cái nắng ấm nhẹ nhàng của mùa thu sẽ dần đến thay đi cái nắng oi ả mùa hè. Mùa thu đến không chỉ là bước chuyển mình của thiên nhiên mà nó còn kéo theo biết bao sự đổi khác của tâm hồn con người, một ánh nhìn mới, một xúc cảm mới và có thể là cả một sự khởi đầu mới.
+        </div>
+        <div class="season" id="winter">
+            <span class="h">Mùa Đông</span><br/>
+            Mùa đông là mùa tương hợp với những mối tình muộn màng. Mùa của những lỗi lầm và trăn trở. Mùa mà cây sim đứng nhọc nhằn trong mưa rét nhưng không thể nở hoa. Đó cũng là mùa ủ ấp những lộc chồi. Mùa xuân bắt đầu bằng những con giá lạnh đến tái tê từ lúc cuối đông.
+        </div>
+    </div>
+</body>
+</html>
