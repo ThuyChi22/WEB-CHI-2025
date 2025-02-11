@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset=" 'utf-8">
+    <title>Tiêu đề trang</title>
+    <script type="text/javascript">
+            dataset= {"Sanphams":[
+                    {
+                    ma: "sp1",
+                    ten: "Cocacola",
+                    gia: 15000
+                    },
+                    {
+                    ma: "sp2",
+                    ten: "Pepsi",
+                    gia: 25000
+                    },
+                    {
+                    ma: "sp3",
+                    ten: "Sting",
+                    gia: 17000
+                    },
+                    ] 
+                }
+    </script>
+</head>
+<body>
+    <table border="1">
+        <caption>List Product</caption>
+        <thead>
+            <tr>
+                <th>Mã SP</th>
+                <th>Tên SP</th>
+                <th>Đơn Giá</th>
+            </tr>
+        </thead>
+        <tbody id="productbody"></tbody>
+    </table>
+
+    <script type="text/javascript">
+        var productbody = document.getElementById("productbody");
+        // Sắp xếp mảng sản phẩm theo giá tăng dần
+        dataset.Sanphams.sort(function(a, b) {
+            return a.gia - b.gia;
+        });
+
+        for (var i = 0; i < dataset.Sanphams.length; i++) {
+            var product = dataset.Sanphams[i];
+            var tr = document.createElement("tr");
+
+            var tdMa = document.createElement("td");
+            tdMa.innerText = product.ma;
+            tr.appendChild(tdMa);
+
+            var tdTen = document.createElement("td");
+            tdTen.innerText = product.ten;
+            tr.appendChild(tdTen);
+
+            var tdGia = document.createElement("td");
+            tdGia.innerText = product.gia;
+            tr.appendChild(tdGia);
+
+            productbody.appendChild(tr);
+        }
+    </script>
+    </table>
+
+</body>
+</html>
